@@ -2,8 +2,8 @@ with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Exceptions;
 
 
-with InAndOutExample;
-with RendezVousExample;
+with InAndOut;
+with RendezVous;
 with Fibonacci;
 with Set_Diff;
 with Quadratic_Solver; 
@@ -16,10 +16,10 @@ procedure PCP is
    begin
       case Choice is
          when '1' =>
-            InAndOutExample;
+            InAndOut;
          
          when '2' =>
-            RendezVousExample;   
+            RendezVous;   
             
          when 'A' | 'a' =>
             Fibonacci;

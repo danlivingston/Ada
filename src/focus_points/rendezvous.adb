@@ -1,7 +1,7 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Calendar; use Ada.Calendar;
 
-procedure RendezVousExample is
+procedure RendezVous is
 
    -- Task Server that can receive messages via rendezvous
    task Server is
@@ -50,4 +50,4 @@ procedure RendezVousExample is
 begin
    -- Main task does nothing, just lets the other tasks run
    null;
-end RendezVousExample;
+end RendezVous;
