@@ -1,16 +1,10 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Exceptions;
 
-with Check_Positive;
-with Fibonacci;
+
 with InAndOutExample;
-with Hello_Tasks;
-with Int_Sqrt_Contract;
-with Show_Predicates;
-with Show_Simple_Contract;
-with Show_Simple_Postcondition;
-with Show_Simple_Precondition;
-with Sum_Two_Numbers;
+with RendezVousExample;
+with Fibonacci;
 with Set_Diff;
 with Quadratic_Solver; 
 
@@ -21,8 +15,11 @@ procedure PCP is
    procedure Handle_User_Choice (Choice : Character) is
    begin
       case Choice is
-         when '0' =>
+         when '1' =>
             InAndOutExample;
+         
+         when '2' =>
+            RendezVousExample;   
             
          when 'A' | 'a' =>
             Fibonacci;
@@ -43,11 +40,12 @@ begin
    loop
       Put_Line ("Select a program to run:");
       New_Line;
-      Put_Line ("THEORY:");
+      Put_Line ("Focus Points:");
       New_Line;
-      Put_Line ("0. in & out parameters");
+      Put_Line ("1. in & out parameters");
+      Put_Line ("2. rendezvous");
       New_Line;
-      Put_Line ("EXERCISES:");
+      Put_Line ("Exercises:");
       New_Line;
       Put_Line ("A. Fibonacci (SW03-EX1)");
       Put_Line ("B. Array Difference (SW04-EX2)");
