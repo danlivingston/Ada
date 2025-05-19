@@ -5,7 +5,7 @@
 This project uses [Alire](https://alire.ada.dev), the Ada package manager, to manage dependencies, compilation, and execution.
 
 To get started, follow the official installation instructions here:  
-👉 https://alire.ada.dev/docs/#first-steps
+👉 https://alire.ada.dev/docs/#getting-started
 
 You can then verify the installation executing the following command:
 ```bash
