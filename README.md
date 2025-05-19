@@ -11,6 +11,7 @@ You can then verify the installation executing the following command:
 ```bash
     alr --version
 ```
+If you see the version number, you are good to go!
 
 ## Using this repo:
 After installing Alire, you can use this project by cloning this repo
