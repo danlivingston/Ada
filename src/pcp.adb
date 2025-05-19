@@ -4,6 +4,7 @@ with Ada.Exceptions;
 
 with InAndOut;
 with RendezVous;
+with ProtectedObjectsTypes;
 with Fibonacci;
 with Set_Diff;
 with Quadratic_Solver; 
@@ -20,6 +21,9 @@ procedure PCP is
          
          when '2' =>
             RendezVous;   
+
+         when '3' =>
+            ProtectedObjectsTypes;  
             
          when 'A' | 'a' =>
             Fibonacci;
@@ -42,8 +46,9 @@ begin
       New_Line;
       Put_Line ("Focus Points:");
       New_Line;
-      Put_Line ("1. in & out parameters");
-      Put_Line ("2. rendezvous");
+      Put_Line ("1. In & Out Parameters");
+      Put_Line ("2. Rendezvous");
+      Put_Line ("3. Protected Objects and Types");
       New_Line;
       Put_Line ("Exercises:");
       New_Line;

@@ -212,3 +212,78 @@ In summary:
 https://learn.adacore.com/courses/Ada_For_The_CPP_Java_Developer/chapters/11_Concurrency.html
 
 ## Protected Objects and Types
+In Ada, protected objects are used to manage shared data between multiple tasks safely and efficiently. They are similar to monitors or synchronized objects in other languages, but are built into the language and enforced by the compiler.
+
+Protected objects combine:
+- Mutual exclusion: Only one task can execute a protected operation at a time.
+- Data encapsulation: State is stored inside the object and cannot be accessed directly.
+- Optional synchronization: Using entry and when conditions.
+
+### Protected Types vs Protected Objects
+- A protected type defines the interface and internal data (like a class).
+- A protected object is an instance of a protected type (like an object).
+
+### Example:
+A complete example of a protected type with its object is provided in:
+
+```bash
+src/focus_points/protectedobjectstypes.adb
+```
+
+This program defines a Safe_Counter protected type with:
+- a procedure Increment to increase the internal counter,
+- a function Get to retrieve the current value.
+
+Two tasks (Worker_1 and Worker_2) increment the counter concurrently. The protected object ensures that access to the counter is safe and mutually exclusive.
+
+Even though two tasks operate in parallel, the counter is incremented correctly, without data races.
+
+### Comparison with Java:
+In Java, managing shared data between threads typically involves using:
+- synchronized methods or blocks,
+- explicit locks (ReentrantLock),
+- or low-level primitives like wait() and notify().
+
+To simplify concurrent access to numeric variables, Java also provides atomic classes such as AtomicInteger and AtomicBoolean, which allow safe updates without locks — but only for very specific use cases.
+
+```java
+class Counter {
+    private int count = 0;
+
+    public synchronized void increment() {
+        count++;
+    }
+
+    public synchronized int get() {
+        return count;
+    }
+}
+```
+
+This ensures mutual exclusion, but puts the responsibility for correctness on the programmer. There’s no compiler help for complex coordination.
+
+```java
+import java.util.concurrent.atomic.AtomicInteger;
+
+AtomicInteger counter = new AtomicInteger(0);
+
+counter.incrementAndGet();  // atomic increment
+int value = counter.get();  // safe read
+```
+
+This is more efficient than synchronized, but only supports simple operations. You cannot define complex, condition-based logic like in Ada’s entry ... when.
+
+In contrast, Ada provides protected objects:
+- Defined explicitly via protected type,
+- Enforced by the compiler,
+- Support atomic procedures, safe functions, and conditional entries.
+
+# Fazit:
+## Davide Ceresa
+Working with Ada has been a formative experience. At first, I struggled with its strict syntax and formality, especially compared to more permissive languages like Java or Python. Even working with basic structures such as strings was not always intuitive — I often had to use Unbounded_String to make things simpler and more flexible.
+
+One of the most rewarding aspects of Ada was its built-in approach to concurrency. Once I understood the task model, the rendezvous mechanism, and protected objects, I realized how powerful and well-integrated these features are. Compared to Java, where concurrency often requires additional libraries and boilerplate code, Ada provides a clear, structured model for concurrent programming directly out of the box.
+
+That said, the learning curve was real. Ada is not widely used today, and finding resources, examples, or community support was sometimes difficult. Documentation is available, but not always easy to digest without prior exposure to the language’s mindset.
+
+In the end, although I don’t think I will use Ada again in future personal or professional projects, I understand why it is used in safety-critical domains. Its language design enforces correctness, and its concurrency model encourages writing reliable and predictable code. For applications where failure is not an option, Ada’s philosophy makes perfect sense.
