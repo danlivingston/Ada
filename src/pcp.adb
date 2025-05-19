@@ -3,7 +3,7 @@ with Ada.Exceptions;
 
 with Check_Positive;
 with Fibonacci;
-with Hello_World;
+with InAndOutExample;
 with Hello_Tasks;
 with Int_Sqrt_Contract;
 with Show_Predicates;
@@ -13,6 +13,7 @@ with Show_Simple_Precondition;
 with Sum_Two_Numbers;
 with Set_Diff;
 with Quadratic_Solver; 
+
 procedure PCP is
    pragma Assertion_Policy (Check);
    Choice : Character;
@@ -21,32 +22,8 @@ procedure PCP is
    begin
       case Choice is
          when '0' =>
-            Hello_World;
-
-         when '1' =>
-            Check_Positive;
-
-         when '2' =>
-            Sum_Two_Numbers;
-
-         when '3' =>
-            Show_Simple_Contract;
-
-         when '4' =>
-            Show_Simple_Precondition;
-
-         when '5' =>
-            Show_Simple_Postcondition;
-
-         when '6' =>
-            Int_Sqrt_Contract;
-
-         when '7' =>
-            Hello_Tasks;
-
-         when '8' =>
-            Show_Predicates;
-
+            InAndOutExample;
+            
          when 'A' | 'a' =>
             Fibonacci;
          
@@ -64,19 +41,11 @@ procedure PCP is
 begin
    New_Line;
    loop
-      Put_Line ("Select an example to run:");
+      Put_Line ("Select a program to run:");
       New_Line;
-      Put_Line ("EXAMPLES:");
+      Put_Line ("THEORY:");
       New_Line;
-      Put_Line ("0. Hello World");
-      Put_Line ("1. Check Positive");
-      Put_Line ("2. Sum Two Numbers");
-      Put_Line ("3. Show Simple Contract");
-      Put_Line ("4. Show Simple Pre Condition");
-      Put_Line ("5. Show Simple Post Condition");
-      Put_Line ("6. Int Square Root Contract");
-      Put_Line ("7. Hello Tasks");
-      Put_Line ("8. Show Predicates");
+      Put_Line ("0. in & out parameters");
       New_Line;
       Put_Line ("EXERCISES:");
       New_Line;
