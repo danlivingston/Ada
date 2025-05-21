@@ -1,13 +1,13 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Exceptions;
 
-
+with Design_By_Contract;
 with InAndOut;
 with RendezVous;
 with ProtectedObjectsTypes;
 with Fibonacci;
 with Set_Diff;
-with Quadratic_Solver; 
+with Quadratic_Solver;
 
 procedure PCP is
    pragma Assertion_Policy (Check);
@@ -17,20 +17,26 @@ procedure PCP is
    begin
       case Choice is
          when '1' =>
-            InAndOut;
-         
+            null; -- Declarative regions (not implemented)
+
          when '2' =>
-            RendezVous;   
+            InAndOut;
 
          when '3' =>
-            ProtectedObjectsTypes;  
-            
+            Design_By_Contract;
+
+         when '4' =>
+            RendezVous;
+
+         when '5' =>
+            ProtectedObjectsTypes;
+
          when 'A' | 'a' =>
             Fibonacci;
-         
+
          when 'B' | 'b' =>
             Set_Diff;
-         
+
          when 'C' | 'c' =>
             Quadratic_Solver;
 
@@ -46,9 +52,11 @@ begin
       New_Line;
       Put_Line ("Focus Points:");
       New_Line;
-      Put_Line ("1. In & Out Parameters");
-      Put_Line ("2. Rendezvous");
-      Put_Line ("3. Protected Objects and Types");
+      Put_Line ("1. Declarative regions");
+      Put_Line ("2. In & Out Parameters");
+      Put_Line ("3. Design by Contract");
+      Put_Line ("4. Rendezvous");
+      Put_Line ("5. Protected Objects and Types");
       New_Line;
       Put_Line ("Exercises:");
       New_Line;
