@@ -446,7 +446,7 @@ In contrast, Ada provides protected objects:
 - Enforced by the compiler,
 - Support atomic procedures, safe functions, and conditional entries.
 
-# Fazit
+# Reflection
 
 ## Davide Ceresa
 
@@ -457,3 +457,15 @@ One of the most rewarding aspects of Ada was its built-in approach to concurrenc
 That said, the learning curve was real. Ada is not widely used today, and finding resources, examples, or community support was sometimes difficult. Documentation is available, but not always easy to digest without prior exposure to the language’s mindset.
 
 In the end, although I don’t think I will use Ada again in future personal or professional projects, I understand why it is used in safety-critical domains. Its language design enforces correctness, and its concurrency model encourages writing reliable and predictable code. For applications where failure is not an option, Ada’s philosophy makes perfect sense.
+
+## Dan Livingston
+
+Before the PCP module, I had never even heard of Ada. So when we chose it as the language for our assignment, it was a bit of a shot in the dark. We knew the module was about exploring different programming paradigms, and Ada seemed interesting because of its focus on safety and structure. It definitely turned out to be a challenge — but one that taught a few things.
+
+Ada is extremely strict. Everything from the typing system to its compile-time checks and features like design by contract made us think carefully about how we wrote and structured our code. It’s clearly built for reliability, and I can see why it's used in industries like aerospace and defence. It forces a kind of discipline that you don’t get with more relaxed languages like Python or JavaScript that I'm used to.
+
+That said, actually working with Ada wasn’t always smooth. Debugging, in particular, was frustrating. IDE support was pretty weak, we couldn’t figure out a way to run single files easily, which made testing small pieces of code awkward. Setting breakpoints didn’t work properly. Because of that, we ended up making a little interactive program that could run our demos in a more controlled way, just to make development easier.
+
+To make things worse, different Ada compilers behaved slightly differently, especially around contract-based features, which meant something that worked in one environment could randomly break in another. And since Ada isn’t widely used anymore, finding help online was tough. Stack Overflow had limited answers, and a lot of the places where Ada is used don’t exactly have open or active developer communities. It felt like we were pretty much on our own most of the time.
+
+Still, choosing Ada was a good learning experience. It pushed me to think more carefully about correctness, structure, and program design. Even though I probably won’t be using Ada in the future, it gave me a better appreciation for programming languages that prioritize reliability and safety. It also reminded me of the challenges that come with working in niche or legacy systems.
