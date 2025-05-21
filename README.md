@@ -1,12 +1,16 @@
-# Ada
+# Ada - PCP
 
-## Davide Ceresa & Dan Livingston
+> by Davide Ceresa & Dan Livingston
 
-## PCP - HSLU - FS25
+## Introduction
 
-### Introduction
+Ada is a high-level programming language designed for reliability, safety, and maintainability. Originally developed in the early 1980s by the U.S. Department of Defense, Ada was created to unify and standardize the many programming languages used in defense systems. It is named after Ada Lovelace, who is often regarded as the first computer programmer.
 
-TODO
+Ada is known for its strong typing, modularity, and built-in support for real-time and embedded systems. It is widely used in mission-critical applications such as aerospace, transportation, and medical devices—where software failures can have serious consequences.
+
+One of Ada’s standout features is its emphasis on early error detection through strict compile-time checks, which helps prevent many common programming bugs. It also supports object-oriented and concurrent programming, making it suitable for complex and large-scale software systems.
+
+In recent years, Ada has continued to evolve, with modern versions like Ada 2012 and Ada 2022 adding more expressive and flexible features while retaining its core focus on reliability and clarity.
 
 ### Installing Alire
 
@@ -39,7 +43,7 @@ alr build     # Builds the project and downloads dependencies
 alr run       # Runs the executable
 ```
 
-# Topics of Ada presented of this Project
+## Focus Topics
 
 ## 1. Declarative regions
 
@@ -446,7 +450,7 @@ In contrast, Ada provides protected objects:
 - Enforced by the compiler,
 - Support atomic procedures, safe functions, and conditional entries.
 
-# Reflection
+## Reflection
 
 ## Davide Ceresa
 
