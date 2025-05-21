@@ -51,6 +51,6 @@ procedure Protected_Objects_Types is
 begin
    -- Main program waits for both tasks to finish
    delay 1.5;
-   Put_Line("Final counter value: " & Integer'Image(Counter.Get));
+   Put_Line ("Final counter value: " & Integer'Image (Counter.Get));
 
 end Protected_Objects_Types;
