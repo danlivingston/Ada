@@ -55,34 +55,7 @@ These are read-write. The caller passes a value that the callee can both read an
 
 #### Example
 
-A full example demonstrating all three parameter modes (in, out, and in out) can be found in `src/focus_points/in_and_out.adb`.
-
-In Java, there is no way to explicitly declare if a parameter is used for input, output, or both.
-All parameters are passed by value — but if you pass an object, Java copies the reference, so you can change the object’s content.
-
-<!-- TODO UNSURE: maybe at least the type of out is defined via void/int/etc.? -->
-
-```java
-class Data {
-    public int value;
-}
-
-void update(Data d) {
-    d.value = 42; // modifies the original object
-}
-```
-
-This works because `d` refers to the same object.
-
-But if you try the same with a primitive type like `int`:
-
-```java
-void update(int x) {
-    x = 42;
-}
-```
-
-Nothing changes outside the function — `x` is just a copy.
+A full example demonstrating all three parameter modes (in, out, and in out) can be found in `src/focus_points/in_and_out.adb` and `src/focus_points/InAndOut.java`.
 
 ### 3. Design by Contract
 
@@ -123,6 +96,9 @@ Core Features of Rendezvous
 A complete example of a server task interacting with two client tasks using rendezvous is provided in `src/focus_points/rendezvous.adb` and `src/focus_points/Rendezvous.java`.
 
 The sequence diagram `diagrams/rendezvous_sequence_diagram.png` shows how `Client_1` and `Client_2` interact with the `Server` task, when the rendezvous occurs, and how the `Server` exits after inactivity.
+<!-- This sequence diagram shows how `Client_1` and `Client_2` interact with the `Server` task, when the rendezvous occurs, and how the `Server` exits after inactivity.
+
+![RendezVous_Sequence_Diagram](./diagrams/rendezvous_sequence_diagram.png) -->
 
 ### 5. Protected Objects and Types
 
@@ -141,7 +117,7 @@ Protected objects combine:
 
 #### Example
 
-A complete example of a protected type with its object is provided in`src/focus_points/protected_objects_types.adb` and `src/focus_points/ProtectedObjectsTypes.java`
+A complete example of protected types is provided in `src/focus_points/protected_objects_types.adb` and `src/focus_points/ProtectedObjectsTypes.java`
 
 ## Reflection
 
@@ -179,4 +155,4 @@ Ada’s strictness — from strong typing to design by contract — forced us to
 
 However, working with Ada wasn’t smooth. Debugging was frustrating due to poor IDE support and inconsistent compiler behavior. We couldn’t easily test small code pieces or rely on breakpoints, so we built a small interactive tool to help us run demos.
 
-With limited online resources and sparse community support, we often felt on our own. Despite the struggles, working with Ada taught me to value reliability and thoughtful design. I may not use it again, but the experience deepened my understanding of programming in strict, niche environments.
+With limited online resources and sparse community support, we often felt on our own. Despite the struggles, working with Ada taught me to value reliability and thoughtful design.
