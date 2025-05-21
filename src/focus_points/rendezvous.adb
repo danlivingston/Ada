@@ -3,6 +3,17 @@ with Ada.Calendar; use Ada.Calendar;
 
 procedure RendezVous is
 
+   -- This example defines:
+   --
+   -- - A `Server` task with an entry `Print_Message`.
+   -- - Two concurrent tasks (`Client_1` and `Client_2`) that call `Print_Message` at different times.
+   -- - A select block in the `Server` that handles:
+   --   - Incoming messages via accept
+   --   - A timeout using delay
+   --
+   -- The rendezvous happens at each call to Print_Message, where the client task is blocked until the server accepts the message. 
+   -- Once both are ready, the server prints the message and both tasks continue.
+
    -- Task Server that can receive messages via rendezvous
    task Server is
       entry Print_Message (Msg : String);

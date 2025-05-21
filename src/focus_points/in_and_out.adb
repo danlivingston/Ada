@@ -3,6 +3,21 @@ with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 
 procedure In_And_Out is
 
+   -- This example defines a procedure that takes:
+   --
+   -- - an `in` parameter: a number that will be doubled,
+   -- - an `in out` parameter: a counter that tracks how many times the procedure has been called,
+   -- - an `out` parameter: a message string that describes the result of the operation.
+   --
+   -- When the procedure is called:
+   --
+   -- - The input number is read but not modified (ensured by `in` mode).
+   -- - The counter is incremented and retained across calls (thanks to `in out` mode).
+   -- - The message is assigned a new string and returned to the caller (`out` mode).
+   --
+   -- This example illustrates the clear separation of roles for each parameter — a principle that helps prevent
+   -- unintended side effects and improves code readability and correctness.
+
    -- Procedure that doubles a number, counts the operation,
    -- and returns a message
    procedure Double_And_Track

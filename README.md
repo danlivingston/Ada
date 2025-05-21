@@ -463,6 +463,24 @@ In contrast, Ada provides protected objects:
 
 ## Reflection
 
+### Team
+
+#### Pros
+
+- **Extremely Safe and Disciplined**: Ada enforces strict typing and compile-time checks, reducing the likelihood of runtime errors.
+- **Built-in Features for Robustness**: Features like Rendezvous and Design by Contract enhance reliability and safety in concurrent and critical systems.
+
+#### Cons
+
+- **High Learning Curve**: The unfamiliar syntax and strict structure make it challenging for newcomers.
+- **Weak Toolchain**: IDE support and debugging tools are underdeveloped, making development less efficient.
+- **Not Suitable for Rapid Development**: Ada is not ideal for quick prototyping or web development due to its complexity and slower iteration cycle.
+
+#### When to Use Ada?
+
+- **Recommended**: For projects where failure is not an option, such as safety-critical systems in aerospace, defense, or medical devices.
+- **Not Recommended**: For fast-paced projects like web development or exploratory prototyping.
+
 ### Davide Ceresa
 
 Working with Ada has been a formative experience. At first, I struggled with its strict syntax and formality, especially compared to more permissive languages like Java or Python. Even working with basic structures such as strings was not always intuitive — I often had to use Unbounded_String to make things simpler and more flexible.

@@ -4,6 +4,15 @@ procedure Design_By_Contract is
    pragma
      Assertion_Policy
        (Check); -- Enable assertion checks (depending on the compiler, this may be different)
+
+   -- This example defines a simple class (type) representing a bank account. The class has:
+   --
+   -- - A precondition that ensures the deposit amount is positive.
+   -- - A postcondition that ensures the balance is updated correctly after a deposit.
+   --
+   -- When the deposit method is called, the precondition checks if the amount is valid. If not, an exception is raised.
+   -- After the deposit, the postcondition checks if the balance has been updated correctly.
+
    -- Demonstrate the usage of a Bank package with contract checks
    package Bank is
       -- This package defines a simple bank account system

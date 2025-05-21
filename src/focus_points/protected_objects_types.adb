@@ -2,6 +2,15 @@ with Ada.Text_IO; use Ada.Text_IO;
 
 procedure Protected_Objects_Types is
 
+   -- This program defines a `Safe_Counter` protected type with:
+   --
+   -- - a procedure Increment to increase the internal counter,
+   -- - a function Get to retrieve the current value.
+   --
+   -- Two tasks (`Worker_1` and `Worker_2`) increment the counter concurrently. The protected object ensures that access to the counter is safe and mutually exclusive.
+   --
+   -- Even though two tasks operate in parallel, the counter is incremented correctly, without data races.
+
    -- Define a protected type for a safe, shared counter
    protected type Safe_Counter is
       procedure Increment;
