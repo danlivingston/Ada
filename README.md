@@ -43,6 +43,76 @@ alr run       # Runs the executable
 
 ## 1. Declarative regions
 
+In Ada, declarative regions are fundamental to the structure of the language. They are areas of code where you can declare entities such as variables, types, constants, procedures, functions, packages, etc. The concept is closely tied to block structure and scope. Understanding declarative regions helps you see where declarations are valid, what their lifetimes are, and how visibility is controlled.
+
+### What Is a Declarative Region?
+
+A declarative region in Ada is:
+
+- The portion of code in which declarations are allowed and visible.
+- Starts after a declare keyword (or the beginning of a block/package/subprogram) and ends before the begin keyword.
+- Provides scope for identifiers (variables, types, etc.).
+- Can be nested.
+
+Declarative regions exist in:
+
+- Procedures and functions
+- Packages
+- Tasks
+- Blocks
+- Loops (limited scope)
+- Records and types
+
+### Why Use Declarative Regions?
+
+- Encapsulation: Keep variables local to a subprogram or block.
+- Clarity: Organize code and limit scope of identifiers.
+- Memory Management: Objects declared in a declarative region are automatically cleaned up at the end.
+- Modularity: Each region can be self-contained with its own declarations.
+
+### Example
+
+A complete example demonstrating declarative regions in Ada can be found in:
+
+```bash
+src/focus_points/declarative_regions.adb
+```
+
+- Declarative_Regions is a procedure with its own declarative region (declaring X and Inner_Procedure).
+- Inner_Procedure has its own declarative region (declaring Y).
+- X is visible in Inner_Procedure due to nesting.
+
+### Comparison with Java
+
+```java
+public class DeclarativeRegions {
+    public static void main(String[] args) {
+        int x = 10;
+
+        class Inner {
+            void display() {
+                int y = x + 5; // x is visible here
+                System.out.println("Y = " + y);
+            }
+        }
+
+        Inner inner = new Inner();
+        inner.display();
+    }
+}
+```
+
+- The Java inner class here emulates Ada's nested procedure.
+- The variable x is effectively final or effectively final, similar to Ada's outer variable being visible in inner scope.
+
+#### Key Differences
+
+- Scope Control: Ada uses explicit declarative regions; Java uses implicit block scoping.
+- Variable Lifetime: Ada variables are cleaned up when the region ends; Java relies on garbage collection.
+- Nesting: Ada allows nested procedures/functions; Java does not (only inner classes or lambdas).
+- Modularity: Ada emphasizes modularity through packages and nested blocks; Java uses classes and packages.
+- Clarity: Ada’s explicit structure improves code readability and scope management.
+
 ## 2. In & Out Parameters
 
 In Ada, subprograms (procedures and functions) use explicit parameter modes to define how data is passed and used within a call. These modes are: in, out, and in out. This design choice is central to Ada's philosophy of safety, clarity, and correctness.

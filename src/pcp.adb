@@ -1,6 +1,7 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Exceptions;
 
+with Declarative_Regions;
 with Design_By_Contract;
 with In_And_Out;
 with RendezVous;
@@ -17,7 +18,7 @@ procedure PCP is
    begin
       case Choice is
          when '1' =>
-            null; -- Declarative regions (not implemented)
+            Declarative_Regions;
 
          when '2' =>
             In_And_Out;
@@ -67,6 +68,7 @@ begin
       Put_Line ("Q. Quit");
       New_Line;
 
+      -- Gets one character input (text longer than 1 will be looped over one by one)
       Put ("Enter your choice: ");
       Get (Choice);
       New_Line;
