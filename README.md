@@ -54,7 +54,7 @@ In Ada, declarative regions are fundamental to the structure of the language. Th
 A declarative region in Ada is:
 
 - The portion of code in which declarations are allowed and visible.
-- Starts after a declare keyword (or the beginning of a block/package/subprogram) and ends before the begin keyword.
+- Starts after a declare keyword (or the beginning of a block/package/subprogram) and ends before the `begin` keyword.
 - Provides scope for identifiers (variables, types, etc.).
 - Can be nested.
 
@@ -82,9 +82,9 @@ A complete example demonstrating declarative regions in Ada can be found in:
 src/focus_points/declarative_regions.adb
 ```
 
-- Declarative_Regions is a procedure with its own declarative region (declaring X and Inner_Procedure).
-- Inner_Procedure has its own declarative region (declaring Y).
-- X is visible in Inner_Procedure due to nesting.
+- `Declarative_Regions` is a procedure with its own declarative region (declaring `X` and `Inner_Procedure`).
+- `Inner_Procedure` has its own declarative region (declaring `Y`).
+- `X` is visible in `Inner_Procedure` due to nesting.
 
 ### Comparison with Java
 
@@ -107,7 +107,7 @@ public class DeclarativeRegions {
 ```
 
 - The Java inner class here emulates Ada's nested procedure.
-- The variable x is effectively final or effectively final, similar to Ada's outer variable being visible in inner scope.
+- The variable `x` is effectively final, similar to Ada's outer variable being visible in inner scope.
 
 #### Key Differences
 
@@ -117,9 +117,14 @@ public class DeclarativeRegions {
 - Modularity: Ada emphasizes modularity through packages and nested blocks; Java uses classes and packages.
 - Clarity: Ada’s explicit structure improves code readability and scope management.
 
+### Useful Links
+
+<https://docs.adacore.com/live/wave/arm05/html/arm05/RM-8-1.html>
+<https://learn.adacore.com/courses/Ada_For_The_CPP_Java_Developer/chapters/04_Statements_Declarations_and_Control_Structures.html>
+
 ## 2. In & Out Parameters
 
-In Ada, subprograms (procedures and functions) use explicit parameter modes to define how data is passed and used within a call. These modes are: in, out, and in out. This design choice is central to Ada's philosophy of safety, clarity, and correctness.
+In Ada, subprograms (procedures and functions) use explicit parameter modes to define how data is passed and used within a call. These modes are: `in`, `out`, and `in out`. This design choice is central to Ada's philosophy of safety, clarity, and correctness.
 
 ### in Parameters
 
@@ -156,20 +161,20 @@ This is suitable when the subprogram needs to modify and return a new version of
 A full example demonstrating all three parameter modes (in, out, and in out) can be found in:
 
 ```bash
-src/focus_points/in_and_outexample.adb
+src/focus_points/in_and_out.adb
 ```
 
 This example defines a procedure that takes:
 
-- an in parameter: a number that will be doubled,
-- an in out parameter: a counter that tracks how many times the procedure has been called,
-- an out parameter: a message string that describes the result of the operation.
+- an `in` parameter: a number that will be doubled,
+- an `in out` parameter: a counter that tracks how many times the procedure has been called,
+- an `out` parameter: a message string that describes the result of the operation.
 
 When the procedure is called:
 
-- The input number is read but not modified (ensured by in mode).
-- The counter is incremented and retained across calls (thanks to in out mode).
-- The message is assigned a new string and returned to the caller (out mode).
+- The input number is read but not modified (ensured by `in` mode).
+- The counter is incremented and retained across calls (thanks to `in out` mode).
+- The message is assigned a new string and returned to the caller (`out` mode).
 
 This example illustrates the clear separation of roles for each parameter — a principle that helps prevent unintended side effects and improves code readability and correctness.
 
@@ -178,7 +183,7 @@ This example illustrates the clear separation of roles for each parameter — a 
 In Java, there is no way to explicitly declare if a parameter is used for input, output, or both.
 All parameters are passed by value — but if you pass an object, Java copies the reference, so you can change the object’s content.
 
-UNSURE: maybe at least the type of out is defined via void/int/etc.?
+<!-- TODO UNSURE: maybe at least the type of out is defined via void/int/etc.? -->
 
 ```java
 class Data {
@@ -190,9 +195,9 @@ void update(Data d) {
 }
 ```
 
-This works because d refers to the same object.
+This works because `d` refers to the same object.
 
-But if you try the same with a primitive type like int:
+But if you try the same with a primitive type like `int`:
 
 ```java
 void update(int x) {
@@ -200,13 +205,13 @@ void update(int x) {
 }
 ```
 
-Nothing changes outside the function — x is just a copy.
+Nothing changes outside the function — `x` is just a copy.
 
 In summary:
 
 - Java lets you modify objects, but not primitives.
 - There’s no compiler check to ensure how parameters are used.
-- In contrast, Ada forces you to be explicit (in, out, in out) — making data flow clear, safe, and verifiable.
+- In contrast, Ada forces you to be explicit (`in`, `out`, `in out`) — making data flow clear, safe, and verifiable.
 
 ### Useful Links
 
@@ -221,7 +226,7 @@ Design by Contract (DbC) is a methodology that defines formal, precise, and veri
 - Postconditions – What must be true after a subprogram executes.
 - Invariants – Conditions that must always be true during the life of an object.
 
-Ada natively supports Design by Contract starting from Ada 2012, using aspect specifications like Pre, Post, and Type_Invariant.
+Ada natively supports Design by Contract starting from Ada 2012, using aspect specifications like `Pre`, `Post`, and `Type_Invariant`.
 
 ### Example
 
@@ -270,7 +275,13 @@ public class BankAccount {
 
 In this Java example, assertions are used to check preconditions and postconditions. However, assertions can be disabled at runtime, making them less reliable than Ada's built-in contract checking.
 
-## 4. Rendevous
+### Useful Links
+
+<https://learn.adacore.com/courses/intro-to-ada/chapters/contracts.html>
+<https://blog.adacore.com/the-case-for-contracts>
+<https://en.wikibooks.org/wiki/Ada_Programming/Contract_Based_Programming>
+
+## 4. Rendezvous
 
 In Ada, tasks are units of concurrent execution. The rendezvous mechanism allows tasks to communicate and synchronize by exchanging control and data in a safe and predictable way.
 
@@ -295,14 +306,14 @@ Core Features of Rendezvous
 A complete example of a server task interacting with two client tasks using rendezvous is provided in:
 
 ```bash
-src/focus_points/in_and_outexample.adb
+src/focus_points/rendezvous.adb
 ```
 
 This example defines:
 
-- A Server task with an entry Print_Message.
-- Two concurrent tasks (Client_1 and Client_2) that call Print_Message at different times.
-- A select block in the Server that handles:
+- A `Server` task with an entry `Print_Message`.
+- Two concurrent tasks (`Client_1` and `Client_2`) that call `Print_Message` at different times.
+- A select block in the `Server` that handles:
   - Incoming messages via accept
   - A timeout using delay
 
@@ -310,7 +321,7 @@ The rendezvous happens at each call to Print_Message, where the client task is b
 
 ### Visual Explanation
 
-This sequence diagram shows how Client_1 and Client_2 interact with the Server task, when the rendezvous occurs, and how the Server exits after inactivity.
+This sequence diagram shows how `Client_1` and `Client_2` interact with the `Server` task, when the rendezvous occurs, and how the `Server` exits after inactivity.
 
 ![RendezVous_Sequence_Diagram](./diagrams/rendezvous_sequence_diagram.png)
 
@@ -360,7 +371,7 @@ server.printMessage("Hello");
 
 In Java:
 
-- synchronized ensures mutual exclusion inside the method,
+- `synchronized` ensures mutual exclusion inside the method,
 - but does not synchronize the client and server — the caller continues immediately,
 - there’s no rendezvous, just a protected method.
 
@@ -398,12 +409,12 @@ A complete example of a protected type with its object is provided in:
 src/focus_points/protected_objects_types.adb
 ```
 
-This program defines a Safe_Counter protected type with:
+This program defines a `Safe_Counter` protected type with:
 
 - a procedure Increment to increase the internal counter,
 - a function Get to retrieve the current value.
 
-Two tasks (Worker_1 and Worker_2) increment the counter concurrently. The protected object ensures that access to the counter is safe and mutually exclusive.
+Two tasks (`Worker_1` and `Worker_2`) increment the counter concurrently. The protected object ensures that access to the counter is safe and mutually exclusive.
 
 Even though two tasks operate in parallel, the counter is incremented correctly, without data races.
 
@@ -442,7 +453,7 @@ counter.incrementAndGet();  // atomic increment
 int value = counter.get();  // safe read
 ```
 
-This is more efficient than synchronized, but only supports simple operations. You cannot define complex, condition-based logic like in Ada’s entry ... when.
+This is more efficient than synchronized, but only supports simple operations. You cannot define complex, condition-based logic like in Ada’s `entry ... when`.
 
 In contrast, Ada provides protected objects:
 
@@ -452,7 +463,7 @@ In contrast, Ada provides protected objects:
 
 ## Reflection
 
-## Davide Ceresa
+### Davide Ceresa
 
 Working with Ada has been a formative experience. At first, I struggled with its strict syntax and formality, especially compared to more permissive languages like Java or Python. Even working with basic structures such as strings was not always intuitive — I often had to use Unbounded_String to make things simpler and more flexible.
 
@@ -462,7 +473,7 @@ That said, the learning curve was real. Ada is not widely used today, and findin
 
 In the end, although I don’t think I will use Ada again in future personal or professional projects, I understand why it is used in safety-critical domains. Its language design enforces correctness, and its concurrency model encourages writing reliable and predictable code. For applications where failure is not an option, Ada’s philosophy makes perfect sense.
 
-## Dan Livingston
+### Dan Livingston
 
 Before the PCP module, I had never even heard of Ada. So when we chose it as the language for our assignment, it was a bit of a shot in the dark. We knew the module was about exploring different programming paradigms, and Ada seemed interesting because of its focus on safety and structure. It definitely turned out to be a challenge — but one that taught a few things.
 
