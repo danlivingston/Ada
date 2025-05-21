@@ -2,9 +2,9 @@ with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Exceptions;
 
 with Design_By_Contract;
-with InAndOut;
+with In_And_Out;
 with RendezVous;
-with ProtectedObjectsTypes;
+with Protected_Objects_Types;
 with Fibonacci;
 with Set_Diff;
 with Quadratic_Solver;
@@ -20,7 +20,7 @@ procedure PCP is
             null; -- Declarative regions (not implemented)
 
          when '2' =>
-            InAndOut;
+            In_And_Out;
 
          when '3' =>
             Design_By_Contract;
@@ -29,7 +29,7 @@ procedure PCP is
             RendezVous;
 
          when '5' =>
-            ProtectedObjectsTypes;
+            Protected_Objects_Types;
 
          when 'A' | 'a' =>
             Fibonacci;

@@ -82,7 +82,7 @@ This is suitable when the subprogram needs to modify and return a new version of
 A full example demonstrating all three parameter modes (in, out, and in out) can be found in:
 
 ```bash
-src/focus_points/inandoutexample.adb
+src/focus_points/in_and_outexample.adb
 ```
 
 This example defines a procedure that takes:
@@ -221,7 +221,7 @@ Core Features of Rendezvous
 A complete example of a server task interacting with two client tasks using rendezvous is provided in:
 
 ```bash
-src/focus_points/inandoutexample.adb
+src/focus_points/in_and_outexample.adb
 ```
 
 This example defines:
@@ -321,7 +321,7 @@ Protected objects combine:
 A complete example of a protected type with its object is provided in:
 
 ```bash
-src/focus_points/protectedobjectstypes.adb
+src/focus_points/protected_objects_types.adb
 ```
 
 This program defines a Safe_Counter protected type with:

@@ -1,6 +1,6 @@
 with Ada.Text_IO; use Ada.Text_IO;
 
-procedure ProtectedObjectsTypes is
+procedure Protected_Objects_Types is
 
    -- Define a protected type for a safe, shared counter
    protected type Safe_Counter is
@@ -53,4 +53,4 @@ begin
    delay 1.5;
    Put_Line("Final counter value: " & Integer'Image(Counter.Get));
 
-end ProtectedObjectsTypes;
+end Protected_Objects_Types;

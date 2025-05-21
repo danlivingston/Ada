@@ -1,7 +1,7 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 
-procedure InAndOut is
+procedure In_And_Out is
 
    -- Procedure that doubles a number, counts the operation,
    -- and returns a message
@@ -41,4 +41,4 @@ begin
    -- Doubled value is:  14
    -- Calls so far:  2
 
-end InAndOut;
+end In_And_Out;
