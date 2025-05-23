@@ -24,6 +24,9 @@ procedure In_And_Out is
      (Number : in Integer; Count : in out Integer; Msg : out Unbounded_String)
    is
    begin
+      -- Example of invalid modification of an `in` parameter (will cause compile-time error)
+      -- ERROR: 'Number' is mode 'in' and cannot be assigned
+      -- Number := Number + 1;  
 
       -- Increment the counter (in out: read and write)
       Count := Count + 1;
